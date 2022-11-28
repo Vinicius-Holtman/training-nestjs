@@ -6,27 +6,27 @@ export class CoursesController {
   constructor(private readonly coursesService: CoursesService) {}
 
   @Get()
-  findAll(): string {
-    return 'List all'
+  findAll() {
+    return this.coursesService.findAll()
   }
 
   @Get(':id')
-  findById(@Param('id') id: string): string {
-    return `List one by ${id}`
+  findById(@Param('id') id: string) {
+    return this.coursesService.findOneById(id)
   }
 
   @Post()
   create(@Body() body) {
-    return body
+    return this.coursesService.create(body)
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() body) {
-    return `id: ${id}, e body ${body}`
+    return this.coursesService.update(id, body)
   }
 
   @Delete(':id')
-  deleteById(@Param('id') id: string): string {
-    return `delete by ${id}`
+  deleteById(@Param('id') id: string) {
+    return this.coursesService.delete(id)
   }
 }

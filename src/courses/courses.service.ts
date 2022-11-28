@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { threadId } from 'worker_threads';
 import { Course } from './entities/Course.entity';
 
 @Injectable()
