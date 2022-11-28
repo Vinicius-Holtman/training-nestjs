@@ -6,7 +6,7 @@ services:
     entrypoint: .docker/entrypoint.sh
     container_name: cursonestjs-app
     ports:
-      - "3000:3000"
+      - "3001:3000"
     volumes:
       - .:/home/node/app
     depends_on:
@@ -26,13 +26,13 @@ services:
       - POSTGRES_DB=cursonestjs
 
   pgadmin:
-    image: dpage/pgamin4
-    container_name: cursonestjs-pgadmin
-    tty: true
-    environment:
-      - PGADMIN_DEFAULT_EMAIL:admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=admin
-    ports:
-      - "8000:80"
-    depends_on:
-      - db
+      image: dpage/pgadmin4
+      container_name: cursonestjs-pgadmin
+      tty: true
+      environment:
+        - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+        - PGADMIN_DEFAULT_PASSWORD=admin
+      ports:
+        - "8000:80"
+      depends_on:
+        - db
